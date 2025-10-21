@@ -1,0 +1,16 @@
+name: CI on push to main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v3
+
+      - name: Ejecutar un mensaje de prueba
+        run: echo "¡Hola desde GitHub Actions!"
