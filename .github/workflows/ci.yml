@@ -12,5 +12,5 @@ jobs:
       - name: Clonar el repositorio
         uses: actions/checkout@v3
 
-      - name: Ejecutar un mensaje de prueba
-        run: echo "¡Hola desde GitHub Actions!"
+      - name: Mostrar autor del commit
+        run: echo "Este cambio fue hecho por ${{ github.actor }}"
