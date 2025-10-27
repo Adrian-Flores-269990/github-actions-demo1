@@ -1,0 +1,25 @@
+name: CI – Validación de Pull Request
+
+on:
+  pull_request:
+    branches:
+      - staging
+
+jobs:
+  validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v3
+
+      - name: Mostrar autor del cambio
+        run: echo "Validando Pull Request creado por ${{ github.actor }} ✅"
+
+      - name: Simular prueba de código
+        run: |
+          echo "Ejecutando pruebas automáticas..."
+          sleep 2
+          echo "✅ Todas las pruebas pasaron correctamente."
+
+      - name: Confirmar CI completado
+        run: echo "Flujo de Integración Continua completado correctamente 🚀"
