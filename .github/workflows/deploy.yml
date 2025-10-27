@@ -1,0 +1,27 @@
+name: CD – Despliegue en staging
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - staging
+
+jobs:
+  deploy:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v3
+
+      - name: Mostrar quién hizo el merge
+        run: echo "Despliegue iniciado tras merge por ${{ github.actor }} 🧩"
+
+      - name: Simular despliegue
+        run: |
+          echo "Preparando archivos para despliegue..."
+          sleep 2
+          echo "🚀 Despliegue simulado completado exitosamente."
+
+      - name: Confirmar finalización
+        run: echo "Proceso de CD finalizado correctamente ✅"
